@@ -1,0 +1,24 @@
+ok, now I am going to check weather the contents with IEEE in text citation is really from the sources or not. guild me to finsih the checking. the reference that I got:
+
+[1] A. Hussain, S. Ali, M.-I. Joo, and H.-C. Kim, "A deep learning approach for detecting and classifying cat activity to monitor and improve cat's well-being using accelerometer, gyroscope, and magnetometer," IEEE Sensors J., vol. 24, no. 2, pp. 1996–2008, Jan. 2024, doi: 10.1109/JSEN.2023.3324665.
+[2] "Growing global pet grooming market," Vet. Rec., vol. 196, no. 2, p. 65, Jan. 2025, doi: 10.1002/vetr.5144.
+[3] Y. Brugger, "Private Equity Challenge – Pets at Home Commercial Assessment of European Pet Market," M.S. thesis, Universidade NOVA de Lisboa, Portugal, 2024. [Online]. Available: http://eproxy.lib.hku.hk/login?url=https://www.proquest.com/dissertations-theses/private-equity-challenge-pets-at-home-commercial/docview/3271169134/se-2
+[4] "NVIDIA delivers quantum leap in performance, introduces new era of neural rendering with GeForce RTX 40 Series," NASDAQ OMX's News Release Distribution Channel, 2022. [Online]. Available: http://eproxy.lib.hku.hk/login?url=https://www.proquest.com/wire-feeds/nvidia-delivers-quantum-leap-performance/docview/2715784025/se-2.
+[5] V. V. Kukartsev, R. A. Ageev, A. S. Borodulin, A. P. Gantimurov, and I. I. Kleshko, "Deep learning for object detection in images: Development and evaluation of the YOLOv8 model using Ultralytics and Roboflow libraries," in Software Engineering Methods Design and Application, R. Silhavy and P. Silhavy, Eds. Cham, Switzerland: Springer, 2024, pp. 629–637, doi: 10.1007/978-3-031-70285-3_48.
+[6] Stanford University, "Lecture 12: Self-Supervised Learning," CS231n: Deep Learning for Computer Vision Course Lecture Slides, 2025. [Online]. Available: https://cs231n.stanford.edu/slides/2025/lecture_12.pdf
+[7] T.-Y. Lin, M. Maire, S. Belongie, L. Bourdev, R. Girshick, J. Hays, P. Perona, D. Ramanan, C. L. Zitnick, and P. Dollár, "Microsoft COCO: Common Objects in Context," 2014, arXiv:1405.0312.
+[8] Stanford University, "Lecture 3: Regularization and Optimization," CS231n: Deep Learning for Computer Vision Course Lecture Slides, 2025. [Online]. Available: https://cs231n.stanford.edu/slides/2025/lecture_3.pdf
+[9] Stanford University, "Lecture 9: Detection, Segmentation, Visualization, and Understanding," CS231n: Deep Learning for Computer Vision Course Lecture Slides, 2025. [Online]. Available: https://cs231n.stanford.edu/slides/2025/lecture_9.pdf
+[10] Radioland Technology Co., Ltd., "NRF52810-Beacon," [Online]. Available: https://fcc.report/FCC-ID/2AGUT-NRF52810-X5/5865491.pdf
+[11] OmniVision Technologies, "OV5640 Datasheet, Version 2.03," 2011. [Online]. Available: https://cdn.sparkfun.com/datasheets/Sensors/LightImaging/OV5640_datasheet.pdf
+[12] Espressif Systems, "ESP32-S3 Series Datasheet, Version 2.2," 2021. [Online]. Available: https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf
+[13] K. R. Tiwari, I. Singhal, and A. Mittal, “Real time RSSI compensation for precise distance calculation using sensor fusion for smart wearables,” Advances in Science, Technology and Engineering Systems Journal, vol. 6, no. 4, pp. 327–333, Aug. 2021, doi: 10.25046/aj060436.
+
+lets check let check each by each 
+
+For the contents of report u can find in report.text
+
+U only need to check 1, 2 ,3 ,4 ,5, 7, 10, 11, 12, 13. I will also provide u all the pdf of document that contain the contents of each reference u need in the folder "To do"
+
+after readed each reference contents, check the reference number refer to the intext citation contents is correct or not so that to see weather the contents in intext citation in the report is really reference from that source or not. Then write a result.txt file to contain all the result.
+In the reuslt, u should also provide the source content which match the contents in report which can let me address the source content from the reference and face check again
