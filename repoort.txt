@@ -16,10 +16,9 @@ Date of Submission: April 20, 2026
 Abstract
 The rapid growth of professional in-home pet sitting has created an accountability gap: homeowners lack real-time oversight of how staff interact with their pets or respect restricted areas. This project addresses this by combining AI-powered computer vision with proximity monitoring to detect human–pet interactions and enforce spatial boundaries.
 
-The system uses a YOLOv8s model fine-tuned on an expanded Roboflow dataset of 4,220 annotated images (3,736 training / 307 validation / 177 testing), with data augmentation to improve generalization. The prototype integrates an ESP32-S3 microcontroller with OV5640 camera for video streaming, dual BLE beacons for multi-zone proximity sensing via RSSI, a MacBook backend for AI inference with optimized network architecture, and an iOS app for live viewing, recording, and alerts. The system is implemented as a wearable chest-mount device with active thermal management to sustain continuous operation.
+The system uses a YOLOv8s model fine-tuned on a Roboflow dataset of 4,220 annotated images (3,736 training / 307 validation / 177 testing), with data augmentation to improve generalization. The prototype integrates an ESP32-S3 microcontroller with OV5640 camera for video streaming, dual BLE beacons for multi-zone proximity sensing via RSSI, a MacBook backend for AI inference, and an iOS app for live viewing, recording, and alerts. The system uses a wearable chest-mount form factor with active thermal management.
 
-Evaluation achieved an overall mAP@50 of 92.5% and mAP@50-95 of 77.1%, with precision of 94.5% and recall of 85.4%. Per-class results: human detection at 94.2% mAP@50 (93.1% precision, 89.4% recall) and cat detection at 90.8% mAP@50 (95.9% precision, 81.4% recall). System testing confirmed correct triggering of automated recording upon simultaneous human+cat detection or real-time zone alerts (~1 m, RSSI-based). Key limitations include RSSI instability from physical obstructions. Future work should focus on dataset expansion, video-sequence training, and cloud deployment.
-
+Evaluation achieved an overall mAP@50 of 92.5% and mAP@50-95 of 77.1%, with precision of 94.5% and recall of 85.4%.  Per-class results show human detection at 94.2% mAP@50 and cat detection at 90.8% mAP@50. Automated recording triggered correctly upon simultaneous human+cat detection or proximity zone breach. Key limitations include RSSI instability in furnished environments; future work will target dataset expansion, video-sequence training, and cloud deployment.
 
 
 
@@ -309,8 +308,7 @@ A custom dataset of 4,220 annotated images was assembled using the Roboflow plat
 Figure 1. Dataset created on Roboflow platform
 
 2.1.2 Training Framework and Computational Infrastructure
-The model was trained using the Ultralytics YOLOv8 framework on an NVIDIA RTX 4090 GPU at the HKU Innovation Wing computer lab. With 24 GB VRAM and 16,384 CUDA cores, the RTX 4090 enabled efficient batch processing (16 images/batch) and parallel computation across 100 epochs [4]. The Ultralytics framework was chosen for its native CUDA support and seamless NVIDIA hardware integration [5].
-
+The model was trained using the Ultralytics YOLOv8 framework on an NVIDIA RTX 4090 GPU at the HKU Innovation Wing computer lab. The RTX 4090 features 16,384 CUDA cores and 24 GB of GDDR6X memory [4], which enabled efficient batch processing of 16 images per batch and parallel computation across 100 epochs. The Ultralytics framework was chosen for its streamlined YOLOv8 model training and evaluation pipeline [5], with native CUDA support enabling efficient GPU utilization.
 2.1.3 Model Architecture Selection
 The pre-trained YOLOv8s model was selected as the detection backbone. YOLOv8s is a single-stage detector using C2f modules, designed to balance inference speed and accuracy for real-time applications [6]. The "small" variant was chosen over larger models to meet real-time processing requirements on the MacBook backend server while maintaining low inference latency for continuous 10 FPS frame processing. Transfer learning from pre-trained COCO dataset weights [7] accelerated convergence, and at 28.6 GFLOPs the model is suitable for embedded hardware deployment.
 
@@ -409,7 +407,7 @@ Figure 9. BLE beacon with NRF52810 chip
  
 Figure 10. Power mode and matching broadcast interval [10]
  
-Figure 11. Broadcast interval and battery lifetime relationship [10]
+Figure 11. Broadcast interval and battery lifetime relationship
 Beacon Details:
 	Beacon 1 (figure 12): MAC Address 52:08:24:08:00:d1, UUID 2cac9dcafff341c782199af018c2de16
 	Beacon 2 (figure 13): MAC Address 52:08:24:08:00:f9, UUID fda50693a4e24fb1afcfc6eb07647825
@@ -481,7 +479,7 @@ Video Storage Management:
 The system maintains a maximum of 10 recorded video files (MAX_VIDEOS = 10). When this limit is exceeded, the oldest videos are automatically deleted to free storage space. Recorded videos are saved in MP4 format at 30 FPS with filenames containing the recording timestamp.
 
 Framework Selection:
-The Ultralytics YOLOv8 library was selected for its high-level API, seamless Flask integration, and flexible model export capabilities, abstracting ONNX/TensorRT handling for rapid prototyping [5].
+The Ultralytics YOLOv8 library was selected for its high-level API that simplifies model training, validation, and prediction workflows [5]. Its seamless Flask integration and flexible model export capabilities, abstracting ONNX/TensorRT handling, further supported rapid prototyping.
 2.4 System Integration and Data Flow
 2.4.1 Video Frame Streaming Pipeline
 The system employs a hybrid streaming pipeline consisting of JPEG-over-HTTP transmission from the ESP32-S3 to the backend, followed by WebSocket-based streaming from the backend to the iPhone client, with adaptive frame rate control to optimize performance under varying network conditions.
