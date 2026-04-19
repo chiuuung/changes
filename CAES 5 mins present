@@ -1,0 +1,49 @@
+Good morning everyone today I am going to talk about my project which is AI computer vision for abnormal dection in home pet care monitoring.
+
+In this project we will first talk about background next move on to methdology then result part finally the conclusion and next steps.
+
+By the research we can see that nowaday more and more ppl treat their pets as family members. This is a reason of the pet care related industry sky rocketing. At the same time, AI also being used for analysising pet behavior which can see the potential of usage AI in pet industory. 
+
+Currently, pet sitter service lack of real-time monitoring service. this project is aiming to use AI computer vision to provide automated, reliable monitoring system to ensure pet safety and maintain client trust.
+
+Now, lets talk about the methodology part. This is the BLE Beacons which combine by a NRF52810 chip and battery. 
+
+This is the wearable device part. first, cooling fins and cooling fans will be add on the esp32s3 and ov5640 module to form the combined module. next this module add on power bank and chest-mount harness to form the final product.
+
+Then, for the AI training part. This project selected YOLO version 8s as AI module. Also, this project augmentation slected geometric, color space as framwork and used NVIDIA RTX4090 to training. For the data set, this project used roboflow as data collection platform and collected in total 4220 images. 
+
+This is the work flow of this project, first 2 ble beacons will podcast rssi signal with the specific mac address. Next, the wearable device will keep receive the signal and use it to calculate distance between the ble beacon and wearable device. at the same time the camera on wearable device will keep capture the images in 10 fps. Both calulated distance amount and images will pass to backend system. In the backend server contains difference API and AI model, the images will pass to the AI model and it will anlysis to see weather there are target object in the image or not, if there are, it will oultine the target and confident percentage and then show the image and detection function in PetGuard app. At the same time, the backend server will also receive the distance and it will use the proximity logic in it to check weahter the distance is more than 1 meter or not, if it more than 1 meter, it will trigger the condition in backend server and the server will trigger the alert in the ios app and show the proximity alert in the app for user. 
+
+Next more to the result part, for the AI detection. This project AI model reached 92.5% confident rate for detecting target object. For the live streaming part, it can apply the AI model and archieve detecting in human, cat detection and even human + cat detection. at the same time for both target being detected sitation will also trigger the recording feature. 
+
+For the proximity and recording features. When we put a BLE BEACON near to the door of target bedroom as a label of area that not allow to entry. once the distance between wearable device and ble beacon, the ios app will show the proximity alert and u can see the recording will start at the same time. once the recording is stopped the recorded video will show in recording page. Once press the specifc video, the recording can be playback. 
+
+In conclusion, the AI model archieve high confidence in detection. Also create a wearable device which can operating stablely for more than 2 hours. For the backend part the latency can less than 200ms. This project also builded a ios app which contain live streaming, recording and alert system. For the next step, first we need to expand dataset to more than 10k images. Next to add LED module to handle low-light environment condition. Then, add kalman filtering for rssi signal to reduce false alert. Then, add temperature sensor to handle different condiction for fan control so that to save power. Finally, change tocloud deployment so that to get remote access.
+
+---
+
+=== CONDENSED VERSION (5 MIN PRESENTATION - FULL SENTENCES) ===
+
+Good morning everyone. Today I'll present my project on AI computer vision for abnormal detection in pet care monitoring.
+
+I'll cover four main topics: the background and motivation for this project, our methodology and how we built the system, the results we achieved, and finally our conclusion with future improvements.
+
+Let me start with the background. Pet owners increasingly treat their pets as family members, which is driving significant growth in pet care services. AI shows great potential for pet behavior monitoring and safety. 
+
+However, traditional pet sitting services lack real-time monitoring capabilities. This project addresses that gap by using AI computer vision to provide an automated, reliable monitoring system that ensures pet safety and maintains client trust.
+
+Now let's move to the methodology. For location tracking, we use BLE Beacons equipped with an NRF52810 chip.
+
+For the wearable device component, we use an ESP32S3 microcontroller with an OV5640 camera module. The device includes cooling fins and cooling fans to manage heat, and it's mounted on a chest harness with a power bank to enable extended operation.
+
+For AI training, we selected the YOLO version 8s model. We trained it on 4220 images collected from Roboflow. Our data augmentation strategy includes geometric and color space transformations. We used an NVIDIA RTX4090 GPU for the training process.
+
+The workflow operates as follows. First, two BLE beacons transmit location signals. The wearable device continuously receives these signals and calculates the distance between itself and each beacon. At the same time, the camera captures images at 10 frames per second. Both the calculated distance data and the images are sent to our backend system. The backend server contains various APIs and our AI model. When images arrive, the AI model analyzes them to detect pets, and if a pet is detected, it outlines the target and provides a confidence percentage. This information is displayed in the PetGuard iOS app. Simultaneously, the backend server receives the distance data and applies proximity logic. If the distance exceeds 1 meter or if a target pet is detected, the app triggers both an alert notification and automatic video recording.
+
+Moving to the results, our AI detection model achieves a 92.5% confidence rate. It can detect humans, cats, and even combinations of humans and cats. Whenever a target is detected, the system automatically triggers the recording feature.
+
+For the proximity and recording features, we can place BLE beacons near restricted areas, such as bedroom doors, to mark boundaries. When the wearable device comes within 1 meter of these beacons, the iOS app displays a proximity alert and recording automatically starts. Users can then review and playback recorded videos directly within the app.
+
+In conclusion, our AI model achieves a high 92.5% detection confidence rate. The wearable device operates stably for over 2 hours on a single charge. The backend system maintains a latency under 200 milliseconds. The iOS app successfully includes live streaming, recording, and alert functionality. For future improvements, we plan to expand our dataset to over 10k images, add an LED module to handle low-light environments, implement Kalman filtering to reduce false alerts, add temperature sensors for intelligent fan control to save power, and finally move to cloud deployment for remote access capabilities.
+
+https://canva.link/c157g98u7s9jnzw
